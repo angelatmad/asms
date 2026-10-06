@@ -5,18 +5,9 @@ require_once __DIR__ . '/classes/ExamSchedule.php';
 require_once __DIR__ . '/classes/LaboratorySchedule.php';
 require_once __DIR__ . '/includes/validator.php';
 
-/**
- * PolyPro on process_schedule.php
- * 
- * 1. Validate input via the Validator class.
- * 2. Instantiate the correct subclass using the schedule type.
- * 3. Store the object in a shared in-memory session registry (no database).
- * 4. Redirect to view_schedule.php to display polymorphic results.
- */
-
 session_start();
 
-// Clear the in-memory registry at the start of a fresh session
+// Clear memory, start fresh session
 if (!isset($_SESSION['schedules'])) {
     $_SESSION['schedules'] = [];
 }
@@ -28,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $post = $_POST;
 
-// 1. Validation
+// 1. Valid
 $errors = Validator::validateScheduleInput($post);
 
 if (!empty($errors)) {
@@ -40,7 +31,7 @@ if (!empty($errors)) {
     exit;
 }
 
-// 2. Object creation - instantiate the appropriate subclass
+// 2. Create Object
 $type = $post['schedule_type'];
 $schedule = null;
 

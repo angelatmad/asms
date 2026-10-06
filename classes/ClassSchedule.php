@@ -1,14 +1,10 @@
 <?php
 require_once __DIR__ . '/Schedule.php';
 
-// Child Class: ClassSchedule
-//Represents a regular lecture class schedule for the 1st semester.
-//Inherits from Schedule and adds room + credit units.
-//Demonstrates method overriding and polymorphism.
 
 class ClassSchedule extends Schedule
 {
-    // Protected: accessible to this class and its subclasses only
+    // Protected
     protected $room;
     protected $units;
 
@@ -23,7 +19,7 @@ class ClassSchedule extends Schedule
         $this->room = $room;
         $this->units = $units;
         $this->lectureHours = $lectureHours;
-        $this->type = 'Class';
+        $this->type = 'class';
     }
 
     public function getRoom()         { return $this->room; }
@@ -36,13 +32,13 @@ class ClassSchedule extends Schedule
         return 'Regular Lecture Class';
     }
 
-    // OVERRIDE #2: getDuration() - lecture-only minutes
+    // OVERRIDE #2: getDuration() 
     public function getDuration()
     {
         return $this->lectureHours * 60;
     }
 
-    //OVERRIDE #3: displaySummary() - polymorphic output
+    //OVERRIDE #3: displaySummary()
     public function displaySummary()
     {
         return "{$this->getSubjectCode()} - {$this->getSubjectName()} | {$this->getDayOfWeek()} {$this->getStartTime()}-{$this->getEndTime()} | Room: {$this->room}";

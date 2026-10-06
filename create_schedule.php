@@ -1,12 +1,12 @@
 <?php
-// Reset any errors from a prior run on fresh visit
+
 $formRequest = null;
 include __DIR__ . '/includes/validator.php';
 
 $pageTitle = 'Create Schedule';
 $activePage = 'create';
 
-// Capture validation errors carried over from processing
+// Capture validation errors c
 $errors = isset($_GET['errors']) ? json_decode($_GET['errors'], true) : [];
 $data   = isset($_GET['data']) ? json_decode($_GET['data'], true) : [];
 ?>

@@ -9,12 +9,12 @@ session_start();
 $pageTitle = 'View Schedules';
 $activePage = 'view';
 
-// Retrieve in-memory registry from session
+// Retrieve memory session
 $schedules = isset($_SESSION['schedules']) ? $_SESSION['schedules'] : [];
 $lastIndex = isset($_SESSION['last_schedule']) ? $_SESSION['last_schedule'] : -1;
 $justCreated = isset($_GET['created']);
 
-// Optional filter by type
+// Filter by Type
 $filter = isset($_GET['filter']) ? $_GET['filter'] : 'all';
 $filtered = [];
 foreach ($schedules as $s) {

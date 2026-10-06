@@ -1,17 +1,14 @@
 <?php
 require_once __DIR__ . '/Schedule.php';
 
-//Child Class: ExamSchedule
-// Represents a periodical exam schedule in the 1st semester.
-//Inherits from Schedule and adds exam type + grading period.
 
 class ExamSchedule extends Schedule
 {
-    // Protected: shared with any future subclasses
+    // Protected
     protected $examType;
     protected $gradingPeriod;
 
-    // Private: internal exam format flag
+    // Private
     private $hasTimeLimit;
 
     public function __construct($subjectCode, $subjectName, $dayOfWeek, $startTime, $endTime, $instructor, $examType, $gradingPeriod, $hasTimeLimit)
@@ -21,7 +18,7 @@ class ExamSchedule extends Schedule
         $this->examType = $examType;
         $this->gradingPeriod = $gradingPeriod;
         $this->hasTimeLimit = $hasTimeLimit;
-        $this->type = 'Exam';
+        $this->type = 'exam';
     }
 
     public function getExamType()      { return $this->examType; }
@@ -34,7 +31,7 @@ class ExamSchedule extends Schedule
         return 'Examination';
     }
 
-    //OVERRIDE #2: getDuration() - exam time; capped at 90 min when a time limit is set
+    //OVERRIDE #2: getDuration() 
      public function getDuration()
     {
         $minutes = parent::getDuration();
@@ -44,7 +41,7 @@ class ExamSchedule extends Schedule
         return $minutes;
     }
 
-    //OVERRIDE #3: displaySummary() - polymorphic output
+    //OVERRIDE #3: displaySummary() 
      public function displaySummary()
     {
         return "{$this->getSubjectCode()} | {$this->examType} ({$this->gradingPeriod}) | {$this->getDayOfWeek()} {$this->getStartTime()}-{$this->getEndTime()}";

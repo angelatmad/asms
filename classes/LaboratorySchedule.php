@@ -1,17 +1,14 @@
 <?php
 require_once __DIR__ . '/Schedule.php';
 
-// Child Class: LaboratorySchedule
-//Represents a hands-on laboratory schedule in the 1st semester.
-//Inherits from Schedule and adds lab room + equipment requirements.
- 
+
 class LaboratorySchedule extends Schedule
 {
-    // Protected: shared with subclasses
+    // Protected
     protected $labRoom;
     protected $equipment;
 
-    // Private: internal safety compliance flag
+    // Private
     private $safetyChecked;
 
     public function __construct($subjectCode, $subjectName, $dayOfWeek, $startTime, $endTime, $instructor, $labRoom, $equipment, $safetyChecked)
@@ -21,7 +18,7 @@ class LaboratorySchedule extends Schedule
         $this->labRoom = $labRoom;
         $this->equipment = $equipment;
         $this->safetyChecked = $safetyChecked;
-        $this->type = 'Laboratory';
+        $this->type = 'laboratory';
     }
 
     public function getLabRoom()    { return $this->labRoom; }
@@ -34,13 +31,13 @@ class LaboratorySchedule extends Schedule
         return 'Laboratory Session';
     }
 
-    //OVERRIDE #2: getDuration() - lab session, includes pre/post setup
+    //OVERRIDE #2: getDuration() 
      public function getDuration()
     {
-        return parent::getDuration() + 30; // +30 min for setup & cleanup
+        return parent::getDuration() + 30; 
     }
 
-    //OVERRIDE #3: displaySummary() - polymorphic output
+    //OVERRIDE #3: displaySummary() 
      public function displaySummary()
     {
         return "{$this->getSubjectCode()} - {$this->getSubjectName()} | LAB {$this->getDayOfWeek()} {$this->getStartTime()}-{$this->getEndTime()} | {$this->labRoom}";

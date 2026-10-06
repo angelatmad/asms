@@ -11,10 +11,6 @@ $activePage = 'home';
 include __DIR__ . '/includes/header.php';
 ?>
 
-<!-- ==============================
-     WELCOME SECTION
-     ============================== -->
-
 <div class="hero">
     <h1>Welcome</h1>
 
@@ -26,9 +22,7 @@ include __DIR__ . '/includes/header.php';
 </div>
 
 
-<!-- ==============================
-     SYSTEM OVERVIEW
-     ============================== -->
+<!-- OVERVIEW -->
 
 <div class="card">
     <h2>System Overview</h2>
@@ -43,9 +37,7 @@ include __DIR__ . '/includes/header.php';
 </div>
 
 
-<!-- ==============================
-     QUICK ACTION BUTTONS
-     ============================== -->
+<!-- BUTTON -->
 
 <div class="btn-container">
 
@@ -60,9 +52,7 @@ include __DIR__ . '/includes/header.php';
 </div>
 
 
-<!-- ==============================
-     SCHEDULE FEATURES
-     ============================== -->
+<!-- SCHEDULE FEATURES HERE -->
 
 <div class="grid">
 
@@ -88,7 +78,7 @@ include __DIR__ . '/includes/header.php';
     </div>
 
 
-    <!-- EXAM SCHEDULE -->
+    <!-- EXAM SCHEDULE HERE -->
 
     <div class="feature">
 
@@ -110,7 +100,7 @@ include __DIR__ . '/includes/header.php';
     </div>
 
 
-    <!-- LABORATORY SCHEDULE -->
+    <!-- LAB SCHEDULE HERE -->
 
     <div class="feature">
 
